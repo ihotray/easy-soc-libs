@@ -7,6 +7,7 @@ CFLAGS += $(DIAG_CFLAGS) -Werror
 LIBEASY_CFLAGS = -fvisibility=hidden $(DIAG_CFLAGS) -Werror
 
 LIBS += -lnl-3 -lnl-route-3 -lnl-genl-3
+$(shellchmod a+x ./genversion.sh)
 VFLAGS=$(shell ./genversion.sh)
 
 objs_lib = event.o base64.o utils.o if_utils.o debug.o

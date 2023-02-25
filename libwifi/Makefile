@@ -9,6 +9,7 @@ LIBWIFI_LDFLAGS += -L. -L../libeasy
 LIBS += -lnl-3 -lnl-route-3 -lnl-genl-3
 LIBS += -leasy
 
+$(shellchmod a+x ./genversion.sh)
 ver=$(shell ./genversion.sh)
 maj=$(word 1,$(ver))
 min=$(word 2,$(ver))
