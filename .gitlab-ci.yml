@@ -1,0 +1,13 @@
+include:
+  - project: 'iopsys/gitlab-ci-pipeline'
+    file: '/static-code-analysis.yml'
+
+stages:
+    - static_code_analysis
+
+variables:
+  DEBUG: 'TRUE'
+  SOURCE_FOLDER: "libdsl libeasy libethernet libwifi libqos"
+  RUN_CPPCHECK: "cppcheck --enable=all --error-exitcode=1 --suppress=unusedFunction --suppress=unusedStructMember --suppress=unusedLabel --suppress=variableScope --suppress=unreadVariable --suppress=knownConditionTrueFalse --suppress=constParameter --suppress=constVariable -DCONFIG_BCM_MAX_GEM_PORTS=32 -DSTATIC_ANALYSIS ."
+  RUN_CPD: "/home/user/pmd-bin-6.19.0/bin/run.sh cpd --minimum-tokens 2500 --language c --exclude ./img --files"
+  COMMON_IMAGE: iopsys/code-analysis:0.27
