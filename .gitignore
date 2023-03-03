@@ -16,3 +16,4 @@ lib*/tags
 .configured_*
 .pkgdir
 /**/latex
+._*
